@@ -7,6 +7,27 @@
   <body>
     <input type="text" placeholder="Name" id="nameField"><br>
     <input type="text" placeholder="Phone Number" id="phoneField"><br>
-    <button onclick = "SubmitUserInfo()"> Submit </button><br>
+    <button onclick = "submitUserInfo()"> Submit </button><br>
+      <div id="root"<\div>
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+    <script>
+       const firebaseConfig = {
+           apiKey: "AIzaSyCmNVaTr8sTKQVSqZprpBK-AMTpUsNPUGs",
+           authDomain: "surbot-v1-1.firebaseapp.com",
+           databaseURL: "https://surbot-v1-1-default-rtdb.firebaseio.com",
+           projectId: "surbot-v1-1",
+           storageBucket: "surbot-v1-1.appspot.com",
+           messagingSenderId: "702504911981",
+           appId: "1:702504911981:web:6d1fea970a851c7ff3ab64"
+           };
+          firebase.initializeApp(firebaseConfig);
+       function submitUserInfo() {
+              var userName = document.getElementById ("nameField").value;
+              var userPhone = document.getElementById ("phoneField").value;
+    <input type="text" placeholder="Name" id="contnameField"><br>
+    <input type="text" placeholder="Phone Number" id="contphoneField"><br>
+    <button onclick = "saveContactInfo()"> Save </button><br>
+           }
+    </script>  
   <\body>
 <\html>
