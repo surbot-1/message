@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Contacts </title>
+</head>
+  <h5> Create New Contact </h5>
+  <body>
+    <form> Name :
+    <input type="text" placeholder="Name" id="nameField">
+    <br>
+           Phone:
+    <input type="number" placeholder="Phone Number" id="phoneField">
+    </form>
+    <button onclick = "saveContactInfo()"> Save </button>
+    <button onclick = "ContactInfo()"> Contacts </button>
+      <div> <p id="result"></p> </div>
+      <div id="root"</div>
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-database.js"></script>
+    <script>
+       const firebaseConfig = {
+           apiKey: "AIzaSyCmNVaTr8sTKQVSqZprpBK-AMTpUsNPUGs",
+           authDomain: "surbot-v1-1.firebaseapp.com",
+           databaseURL: "https://surbot-v1-1-default-rtdb.firebaseio.com",
+           projectId: "surbot-v1-1",
+           storageBucket: "surbot-v1-1.appspot.com",
+           messagingSenderId: "702504911981",
+           appId: "1:702504911981:web:6d1fea970a851c7ff3ab64"
+           };
+          firebase.initializeApp(firebaseConfig);
+       function saveContactInfo() {
+              var userName = document.getElementById ("nameField").value;
+              var userPhone = document.getElementById ("phoneField").value;
+              document.getElementById("result").innerHTML = "";
+              document.getElementById("result").innerHTML += '<br>' + "Name :" + userName;
+              document.getElementById("result").innerHTML += '<br>' + "Phone:" + userPhone;
+              document.getElementById("result").innerHTML += '<br>' + "Saved";  
+          /* var doc;
+           var resultCnf = confirm("Do you want to save contact?");
+           if (resultCnf == true) {
+                doc = "Saved";
+            } else {
+                doc = "";
+            }
+           document.getElementById("result").innerHTML = doc; */
+           firebase.database().ref("Contacts").set({
+              Name:  userName , 
+              Phone: userPhone
+              });
+           // document.getElementById("result").innerHTML += '<br>' + "Saved";
+           // window.location.href="https://surbot-1.github.io/surbot5/"; 
+          }
+        function ContactInfo() {
+               document.getElementById("root").innerHTML = "";
+               var ref = firebase.database().ref("Contacts"); 
+               ref.once("value", function(snapshot) {
+               snapshot.forEach(function(element) {
+               document.querySelector('#root').innerHTML +=`
+               <div>${element.val()}<\div>
+               `
+                 }); 
+               })
+            }
+    </script>  
+  </body>
+</html>
