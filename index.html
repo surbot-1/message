@@ -12,7 +12,7 @@
     <input type="number" placeholder="Phone Number" id="phoneField">
     </form>
     <button onclick = "submitUserInfo()"> Submit </button>
-    
+    <button onclick = "gotoContact()"> Contacts </button>
       <div> <p id="result"></p> </div>
       <div id="root"</div>
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
@@ -33,9 +33,16 @@
               document.getElementById("result").innerHTML = "";
               document.getElementById("result").innerHTML += '<br>' + "Name :" + userName;
               document.getElementById("result").innerHTML += '<br>' + "Phone:" + userPhone;
-             // window.location.href="https://surbot-1.github.io/message/contact/";
-      
-           }
+              document.getElementById("result").innerHTML += '<br>' + "Submitted";
+              firebase.database().ref("UserInfo").set({
+                Name:  userName , 
+                Phone: userPhone
+              });
+              }
+       function gotoContact() {     
+              window.location.href="https://surbot-1.github.io/message/contact/";
+              }
+           
     </script>  
   </body>
 </html>
