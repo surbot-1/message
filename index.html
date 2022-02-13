@@ -5,10 +5,10 @@
 </head>
   <h5>Enter your Name and Phone Number</h5>
   <body>
-    <form> Name
+    <form> Name :
     <input type="text" placeholder="Name" id="nameField"><br>
     </form>
-    <form> Mob
+    <form> Phone:
     <input type="text" placeholder="Phone Number" id="phoneField"><br>
     </form>
     <button onclick = "submitUserInfo()"> Submit </button><br>
@@ -30,7 +30,7 @@
               var userName = document.getElementById ("nameField").value;
               var userPhone = document.getElementById ("phoneField").value;
               document.getElementById("result").innerHTML = "";
-              document.getElementById("result").innerHTML += '<br>' + "Name: " + userName;
+              document.getElementById("result").innerHTML += '<br>' + "Name : " + userName;
               document.getElementById("result").innerHTML += '<br>' + "Phone: " + userPhone;
   //  <input type="text" placeholder="Name" id="contnameField"><br>
  //   <input type="text" placeholder="Phone Number" id="contphoneField"><br>
