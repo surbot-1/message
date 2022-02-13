@@ -8,6 +8,7 @@
     <input type="text" placeholder="Name" id="nameField"><br>
     <input type="text" placeholder="Phone Number" id="phoneField"><br>
     <button onclick = "submitUserInfo()"> Submit </button><br>
+      <div> <p id="result"></p> <\div>
       <div id="root"<\div>
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
     <script>
@@ -24,9 +25,10 @@
        function submitUserInfo() {
               var userName = document.getElementById ("nameField").value;
               var userPhone = document.getElementById ("phoneField").value;
-    <input type="text" placeholder="Name" id="contnameField"><br>
-    <input type="text" placeholder="Phone Number" id="contphoneField"><br>
-    <button onclick = "saveContactInfo()"> Save </button><br>
+              document.getElementById('result').innerHTML += '<br>' + nameField;
+  //  <input type="text" placeholder="Name" id="contnameField"><br>
+ //   <input type="text" placeholder="Phone Number" id="contphoneField"><br>
+  //  <button onclick = "saveContactInfo()"> Save </button><br>
            }
     </script>  
   <\body>
