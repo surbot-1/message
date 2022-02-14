@@ -12,7 +12,7 @@
     <input type="number" placeholder="Phone Number" id="phoneField">
     </form>
     <button onclick = "saveContactInfo()"> Save </button>
-    <button onclick = "ContactInfo()"> Contact </button>
+    <button onclick = "contactInfo()"> Contact </button>
     <button onclick = "gotoMessage()"> Message </button>
       <div> <p id="result"></p> </div>
       <div id="root"</div>
@@ -52,7 +52,14 @@
            // document.getElementById("result").innerHTML += '<br>' + "Saved";
            // window.location.href="https://surbot-1.github.io/surbot5/"; 
           }
-        function ContactInfo() {
+        function contactInfo() {
+               takeSnapshot();
+               }
+        function gotoMessage() {  
+               window.location.href="index.html";
+                   }
+               takeSnapshot();
+        function takeSnapshot() {
                document.getElementById("root").innerHTML = "";
                var ref = firebase.database().ref("Contact"); 
                ref.once("value", function(snapshot) {
@@ -63,9 +70,7 @@
                  }); 
                 })
                }
-          function gotoMessage() {  
-               window.location.href="index.html";
-                   }
+          
             
     </script>  
   </body>
