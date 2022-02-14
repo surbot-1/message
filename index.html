@@ -35,7 +35,7 @@
               document.getElementById("result").innerHTML = "";
               document.getElementById("result").innerHTML += '<br>' + "Name :" + userName;
               document.getElementById("result").innerHTML += '<br>' + "Phone:" + userPhone;
-              document.getElementById("result").innerHTML += '<br>' + "Submitted";
+              document.getElementById("result").innerHTML += '<br>' + "Submitted!";
               takeSnapshot();
             firebase.database().ref("UserInfo").set({
                 Name:  userName , 
@@ -47,7 +47,8 @@
               }
               takeSnapshot();
        function takeSnapshot() {
-              document.getElementById("root").innerHTML = "";
+               document.getElementById("root").innerHTML = "";
+               document.getElementById("root").innerHTML = "User Info";
                var ref = firebase.database().ref("UserInfo"); 
                ref.once("value", function(snapshot) {
                snapshot.forEach(function(element) {
