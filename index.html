@@ -28,7 +28,7 @@
            messagingSenderId: "702504911981",
            appId: "1:702504911981:web:6d1fea970a851c7ff3ab64"
            };
-          firebase.initializeApp(firebaseConfig);
+           firebase.initializeApp(firebaseConfig);
        function submitUserInfo() {
               var userName = document.getElementById ("nameField").value;
               var userPhone = document.getElementById ("phoneField").value;
@@ -36,24 +36,27 @@
               document.getElementById("result").innerHTML += '<br>' + "Name :" + userName;
               document.getElementById("result").innerHTML += '<br>' + "Phone:" + userPhone;
               document.getElementById("result").innerHTML += '<br>' + "Submitted";
+              takeSnapshot();
               firebase.database().ref("UserInfo").set({
                 Name:  userName , 
                 Phone: userPhone
-              });
-              }
+                });
+               }
        function gotoContact() {     
               window.location.href="contact.html";
               }
-        
+              takeSnapshot();
+       function takeSnapshot() {
+              document.getElementById("root").innerHTML = "";
                var ref = firebase.database().ref("UserInfo"); 
-               ref.on("value", function(snapshot) {
+               ref.once("value", function(snapshot) {
                snapshot.forEach(function(element) {
                document.querySelector('#root').innerHTML +=`
                <div>${element.val()}<\div>
                `
                  });
                 });      
-               
+               }
     </script>  
   </body>
 </html>
