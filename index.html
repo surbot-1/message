@@ -43,7 +43,16 @@
        function gotoContact() {     
               window.location.href="https://surbot-1.github.io/message/contact/";
               }
-           
+        
+               var ref = firebase.database().ref("UserInfo"); 
+               ref.on("value", function(snapshot) {
+               snapshot.forEach(function(element) {
+               document.querySelector('#root').innerHTML +=`
+               <div>${element.val()}<\div>
+               `
+                 });
+                });      
+               
     </script>  
   </body>
 </html>
