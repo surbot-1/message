@@ -17,6 +17,7 @@
       <div> <p id="result"></p> </div>
       <div id="root"</div>
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-database.js"></script>
     <script>
        const firebaseConfig = {
@@ -44,7 +45,7 @@
                 doc = "";
             }
            document.getElementById("result").innerHTML = doc; */
-           firebase.database().ref("Contacts").set({
+           firebase.database().ref("Contact").set({
               Name:  userName , 
               Phone: userPhone
               });
@@ -60,11 +61,12 @@
                <div>${element.val()}<\div>
                `
                  }); 
-               })
+                })
+               }
           function gotoMessage() {  
-               window.location.href="https://surbot-1.github.io/message/";
-                   {
-            }
+               window.location.href="index.html";
+                   }
+            
     </script>  
   </body>
 </html>
