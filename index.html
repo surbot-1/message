@@ -37,7 +37,7 @@
               document.getElementById("result").innerHTML += '<br>' + "Phone:" + userPhone;
               document.getElementById("result").innerHTML += '<br>' + "Submitted";
               takeSnapshot();
-              firebase.database().ref("UserInfo").set({
+            firebase.database().ref("UserInfo").set({
                 Name:  userName , 
                 Phone: userPhone
                 });
